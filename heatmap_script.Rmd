@@ -1,7 +1,7 @@
 ###Making a heatmap from binned octamers
 ```R
-library("gplots")
-library("RColorBrewer")
+require("gplots")
+require("RColorBrewer")
 ```
 
 ####Reading in the data, octamers binned with P-values of 0.001 and 0.005 respectively
