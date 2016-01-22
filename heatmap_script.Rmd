@@ -23,7 +23,7 @@ hr1 <- hclust(as.dist(1-cor(t(tscaled_od1), method="pearson")), method="complete
 hr5 <- hclust(as.dist(1-cor(t(tscaled_od5), method="pearson")), method="complete")
 ```
 
-####Cuts the tree at 8 and 300 branches with heights of 10 and 20 nodes, respectively, <br>and designates a rainbow color scheme to branches
+####Organizes the tree into coloured sections with a dendrogram and designates a row-side rainbow color scheme to 8- and 20-size groups
 ```R
 mycl1 <- cutree(hr1, k = 8, h = 10)
 mycolhr1 <- rainbow(length(unique(mycl1)), start=0.1, end=0.9)
@@ -35,8 +35,8 @@ mycolhr5 <- mycolhr1[as.vector(mycl5)]
 
 ####Plot the heatmaps
 ```R
-heatmap.2(as.matrix(tscaled_od1), dendrogram = "row", Rowv = as.dendrogram(hr1), Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr1, xlab="Bin Numbers", ylab= "Octamers")
-heatmap.2(as.matrix(tscaled_od5), dendrogram = "row", Rowv = as.dendrogram(hr5), Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr5, xlab="Bin Numbers", ylab= "Octamers")
+heatmap.2(as.matrix(tscaled_od1), dendrogram = "row", Rowv = mycl1, Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr1, xlab="Bin Numbers", ylab= "Octamers")
+heatmap.2(as.matrix(tscaled_od5), dendrogram = "row", Rowv = mycl5, Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr5, xlab="Bin Numbers", ylab= "Octamers")
 ```
 ---
 ###Sub-clustering of visible groups on heatmap
