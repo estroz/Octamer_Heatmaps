@@ -34,10 +34,15 @@ mycolhr5 <- mycolhr1[as.vector(mycl5)]
 ```
 
 ####Plot the heatmaps
+![octadist001](https://cloud.githubusercontent.com/assets/12985147/12519703/3feaf9ca-c0f5-11e5-94c2-7b1333583abb.png)
 ```R
 heatmap.2(as.matrix(tscaled_od1), dendrogram = "row", Rowv = mycl1, Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr1, xlab="Bin Numbers", ylab= "Octamers")
+```
+![octadist005](https://cloud.githubusercontent.com/assets/12985147/12519679/179accd4-c0f5-11e5-9276-29c723a269d6.png)
+```R
 heatmap.2(as.matrix(tscaled_od5), dendrogram = "row", Rowv = mycl5, Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr5, xlab="Bin Numbers", ylab= "Octamers")
 ```
+
 ---
 ###Sub-clustering of visible groups on heatmap
 
@@ -56,11 +61,4 @@ heatmap.2(ysub1, dendrogram = "row", Rowv = as.dendrogram(hrsub1), Colv = FALSE,
 col= redgreen(75), trace="none", RowSideColors=mycolhr1[mycl1%in%clid], xlab="Bin Numbers", ylab= "Octamers")
 heatmap.2(ysub5, dendrogram = "row", Rowv = as.dendrogram(hrsub5), Colv = FALSE,
 col= redgreen(75), trace="none", RowSideColors=mycolhr5[mycl5%in%clid], xlab="Bin Numbers", ylab= "Octamers")
-```
-
-###Saving heatmap as a .tif file
-```R
-tiff(filename = "octamer_heatmap.tif")
-heatmap.2(as.matrix(tscaled_od1), dendrogram = "row", Rowv = as.dendrogram(hr1), Colv = FALSE, col = redgreen(75), trace = "none", RowSideColors = mycolhr1, xlab="Bin Numbers", ylab= "Octamers")
-dev.off()
 ```
